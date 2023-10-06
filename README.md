@@ -1,2 +1,5 @@
 # Better-Server
-一个专为ZH-Server编写的LL插件
+
+使你的服务器更易于管理
+
+

@@ -2,22 +2,24 @@ ll.registerPlugin(`TPA`,`Tp players to other players`);
 
 mc.listen("onServerStarted",function(){
     mc.regPlayerCmd('tpa', '玩家传送', function (pl, args) {
-            return tpamenu(pl);
-            });
+        return tpamenu(pl);
         });
-        function tpamenu(pl) {
-            let pll = mc.getOnlinePlayers();
-            let plname = [];
-            let mo = ["自己→→→→别人", "别人→→→→自己"]
-            for (let i in pll) {
-                if (pll[i].realName != pl.realName) {
-                    plname.push(pll[i].realName);
-                } else {
-                    continue;
-                }
-            }
-            let menu = mc.newCustomForm();
-            menu.setTitle('传送菜单');
+    });
+    
+function tpamenu(pl) {
+    let pll = mc.getOnlinePlayers();
+    let plname = [];
+    let mo = ["自己→→→→别人", "别人→→→→自己"]
+    for (let i in pll) {
+        if (pll[i].realName != pl.realName) {
+            plname.push(pll[i].realName);
+        } 
+        else {
+            continue;
+        }
+    }
+    let menu = mc.newCustomForm();
+    menu.setTitle('传送菜单');
             menu.addDropdown('玩家选择', plname, 0);
             menu.addDropdown('模式选择', mo, 0);
             pl.sendForm(menu, function (pl, data) {
@@ -34,8 +36,8 @@ mc.listen("onServerStarted",function(){
                         return;
                     }
                 }
-            });
-        };
+        });
+};
     
         function tpaa(pl, pla) {
             pla.sendModalForm('传送请求', `玩家${pl.realName}请求传送到你这里`, '接受', '拒绝', function (pla, result) {
