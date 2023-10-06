@@ -32,9 +32,16 @@ mc.listen("onRespawn",(player) =>{
 })
 
 mc.listen("onBedEnter",(player) =>{
-    log(`${player.name}在${player.pos}睡觉`),
-    player.sendToast('晚安_(-w-)_...', '祝君好梦')
-    setTimeout(() => mc.runcmd("time set day"), 3000);
+    if(mc.getTime(1)>=11834){
+        log(`${player.name}在${player.pos}睡觉`),
+        player.sendToast('晚安_(-w-)_...', '祝君好梦'),
+        setTimeout(() => mc.runcmd("time set day"), 3000);
+        return false;
+    }
+    else{
+        log(`${player.name}在${player.pos}设置重生点`);
+        return false;
+    }
 })
 
 mc.listen("onServerStarted", () => {
