@@ -1,4 +1,4 @@
-ll.registerPlugin('头顶信息显示','头顶信息显示');
+ll.registerPlugin('Appaer info on head','Appear info on players\' head');
 
 let none,red,yellow,gold,green;
 none = Format.Clear;

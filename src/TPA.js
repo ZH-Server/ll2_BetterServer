@@ -9,7 +9,7 @@ mc.listen("onServerStarted",function(){
 function tpamenu(pl) {
     let pll = mc.getOnlinePlayers();
     let plname = [];
-    let mo = ["自己→→→→别人", "别人→→→→自己"]
+    let mo = ["自己  -->  别人", "别人  -->  自己"]
     for (let i in pll) {
         if (pll[i].realName != pl.realName) {
             plname.push(pll[i].realName);
@@ -25,11 +25,11 @@ function tpamenu(pl) {
     pl.sendForm(menu, function (pl, data) {
         let pla
         if (data != null && data != undefined) {
-            if (plname[data[0]] != undefined && mo[data[1]] == "自己→→→→别人") {
+            if (plname[data[0]] != undefined && mo[data[1]] == "自己  -->  别人") {
                 pla = mc.getPlayer(plname[data[0]]);
                 tpaa(pl, pla);
             } 
-            else if (plname[data[0]] != undefined && mo[data[1]] == "别人→→→→自己") {
+            else if (plname[data[0]] != undefined && mo[data[1]] == "别人  -->  自己") {
                 pla = mc.getPlayer(plname[data[0]]);
                 tpal(pl, pla);
             } 
